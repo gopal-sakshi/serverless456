@@ -1,0 +1,16 @@
+For each Lambda function on our serverless.yml
+- CloudFormation needs to create at least six resources
+    AWS:Lambda:Function
+    AWS:Lambda:Version
+    AWS:Logs:LogGroup
+    AWS:Lambda:Permission
+    AWS:ApiGateway:Resource
+    AWS:ApiGateway:Method
+
+AWS CloudFormation
+- 200 Resources limitation feature
+- If you have 35 functions in one stack, you really have 210 resources
+    The CloudFormation template is invalid: Template format error: 
+    Number of resources, 210, is greater than maximum allowed, 200
+
+https://medium.com/yisus-devs/writing-our-own-serverless-router-for-aws-lambda-functions-a7c5a02556f3

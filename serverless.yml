@@ -1,4 +1,9 @@
 service: serverless456
+custom: 
+  serverless-offline:
+    httpPort: 4004
+    websocketPort: 4005
+    lambdaPort: 4006
 
 plugins:
   - serverless-offline
@@ -11,5 +16,13 @@ provider:
 
 
 functions:
-  hello:
-    handler: handler.hello
+  hello12:                                    # invoked locally
+    handler: handler.hello                      # 
+
+  practice22:                                 # invoked by Http event
+    handler: handler23.main                     # then, sls listens on httpPort 4004.
+    timeout: 30                                 # without events property... sls listens on lambdaPort 4006
+    events:
+      - http:
+          path: '{proxy+}'
+          method: any
