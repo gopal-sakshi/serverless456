@@ -2,12 +2,13 @@
     "name": "serverless456",
     "version": "1.0.0",
     "scripts": {
-      "start": "npx sls offline",
-      "ports_info": "sls offline --help | grep 'port'",
-      "invokeey": "npx serverless invoke local --function hello12"
+        "start": "npx sls offline",
+        "ports_info": "sls offline --help | grep 'port'",
+        "invokeey23": "npx serverless invoke local --function hello12",
+        "invokeey24": "npx serverless invoke local --function hello13 --data '{ \"club23\": {\"id\":\"rma23\"}}'",
+        "invokeey25": "npx serverless invoke local --function hello14"
     },
-    "dependencies": {    
-      "serverless-offline": "^12.0.4"      
+    "dependencies": {
+        "serverless-offline": "^13.6.0"
     }
-  }
-  
+}

@@ -1,0 +1,1 @@
+aws lambda invoke /dev/null --endpoint-url http://localhost:4004/hello14/pathParam23 --function-name hello14 --region us-east-1

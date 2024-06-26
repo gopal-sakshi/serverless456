@@ -5,13 +5,14 @@ function Router23(event, context, callback) {
 
     this.route = function (method, path, handler) {
         // console.log(JSON.stringify(event))
-        console.log(`method ===>`, this.method, method);
-        console.log(`path ===> `, this.path, path);
-        if (this.method === method && this.path === path) {
-            try {                
-                if (method !== 'GET') { event.body = JSON.parse(event.body); }
-                handler(event, context, callback);
-            } catch (e) { console.log('errorey'); this.callback(null, builResponse(500, "Data Error")); }
+        console.log(`method23 ===>`, this.method, method);
+        console.log(`path23 ===> `, this.path, path);
+        try {                
+            event.body = JSON.parse(event.body);
+            handler(event, context, callback);
+        } catch (e) { 
+            console.log('errorey ===> ', e); 
+            this.callback(null, builResponse(500, "Data Error")); 
         }
     }
 }

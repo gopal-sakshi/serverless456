@@ -3,14 +3,14 @@ const cricket23 = require('./routes23/cricket23');
 const football23 = require('./routes23/football23');
 
 exports.main = (event, context, callback) => {
-    console.log('main method');
+    console.log('inside main method23 ====> ');
     context.callbackWaitsForEmptyEventLoop = false;
     const router = new lambdaRouter.Router23(event, context, callback);
     
     router.route('GET', '/cric', (event, context, callback) => {
-        console.log('here1');
-        cricket23.getPlayers(event.queryStringParameters).then((data) => {
-            console.log('here1');
+        console.log('here1 ==========> ');
+        return cricket23.getPlayers(event.queryStringParameters).then((data) => {
+            console.log('get players got executed23 ====> ');
             callback(null, lambdaRouter.builResponse(200, { ...data, success: true }))
         }).catch((e) => {
             console.error(e);
@@ -18,12 +18,13 @@ exports.main = (event, context, callback) => {
         });
     });
 
-    router.route('GET', '/fb', (event, context, callback) => {
-        football23.data(event.queryStringParameters).then((data) => {
-            callback(null, lambdaRouter.builResponse(200, {...data, success: true }))
-        }).catch((e) => { 
-            console.error(e);
-            callback(null, lambdaRouter.builResponse(500, { records: "ERROR", success: false }))
-        });
-    });
+    // router.route('GET', '/fb', (event, context, callback) => {
+    //     football23.data(event.queryStringParameters).then((data) => {
+    //         callback(null, lambdaRouter.builResponse(200, {...data, success: true }))
+    //     }).catch((e) => { 
+    //         console.error(e);
+    //         callback(null, lambdaRouter.builResponse(500, { records: "ERROR", success: false }))
+    //     });
+    // });
+
 };

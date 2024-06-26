@@ -12,12 +12,22 @@ frameworkVersion: '3'
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs18.x
 
 
 functions:
   hello12:                                    # invoked locally
-    handler: handler.hello                      # 
+    handler: handler22.hello                      # 
+  
+  hello13:
+    handler: handler22.football24
+
+  hello14:        #### ignore this
+    handler: handler24.api23
+    events:
+      - http:
+          path: '/hello14/{proxy+}'
+          method: any
 
   practice22:                                 # invoked by Http event
     handler: handler23.main                     # then, sls listens on httpPort 4004.
