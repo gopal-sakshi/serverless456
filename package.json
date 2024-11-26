@@ -9,6 +9,8 @@
         "invokeey25": "npx serverless invoke local --function hello14"
     },
     "dependencies": {
+        "@apollo/server": "^4.11.2",
+        "@as-integrations/aws-lambda": "^3.1.0",
         "serverless-offline": "^13.6.0"
     }
 }

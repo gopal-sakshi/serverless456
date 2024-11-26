@@ -16,23 +16,28 @@ provider:
 
 
 functions:
-  hello12:                                    # invoked locally
-    handler: handler22.hello                      # 
+  hello12:                                      ### npx serverless invoke local --function hello12
+    handler: handler22.hello
   
-  hello13:
+  hello13:                                      ### npx serverless invoke local --function hello13
     handler: handler22.football24
 
-  hello14:        #### ignore this
-    handler: handler24.api23
+  practice23:                                   ### invoked by Http event --- then, sls listens on httpPort 4004.
+    handler: handler23.main                     ### without events property... sls listens on lambdaPort 4006                     
+    timeout: 30                                 ### npx serverless invoke local --function practice23
     events:
       - http:
-          path: '/hello14/{proxy+}'
+          path: 'cric/{proxy+}'                 ### npx .. --data '{ "queryStringParameters": {"id":"dhoni thala"}}'
           method: any
+      - http:
+           path: 'fb/{proxy+}'
+           method: any
 
-  practice22:                                 # invoked by Http event
-    handler: handler23.main                     # then, sls listens on httpPort 4004.
-    timeout: 30                                 # without events property... sls listens on lambdaPort 4006
+  graphql23:                                    ### npx serverless invoke local -f graphql23 -p handler25_query1.json
+    handler: handler25.graphql_handler
+    timeout: 900
+    memorySize: 2048
     events:
-      - http:
-          path: '{proxy+}'
-          method: any
+      - httpApi: 
+           path: /graphql
+           method: any

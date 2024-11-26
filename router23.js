@@ -8,7 +8,8 @@ function Router23(event, context, callback) {
         console.log(`method23 ===>`, this.method, method);
         console.log(`path23 ===> `, this.path, path);
         try {                
-            event.body = JSON.parse(event.body);
+            // event.body = JSON.parse(event.body);
+            console.log("event.body ====> ", event.body)
             handler(event, context, callback);
         } catch (e) { 
             console.log('errorey ===> ', e); 
