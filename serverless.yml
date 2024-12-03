@@ -29,6 +29,7 @@ functions:
       - http:
           path: 'cric/{proxy+}'                 ### npx .. --data '{ "queryStringParameters": {"id":"dhoni thala"}}'
           method: any
+        #   authorizer: authorizerFn23            ### this path is protected when invoked hy http... local invocation is fine
       - http:
            path: 'fb/{proxy+}'
            method: any
@@ -41,3 +42,6 @@ functions:
       - httpApi: 
            path: /graphql
            method: any
+
+  authorizerFn23:
+    handler: handler23.authFn23

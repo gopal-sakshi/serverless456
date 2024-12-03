@@ -27,3 +27,17 @@ exports.main = (event, context, callback) => {
     // });
 
 };
+
+function buildPolicy(effect, methodArn) {
+    return {
+        Version: "2012-10-17",
+        Statement: [{ Action: "execute-api:Invoke", Effect: effect, Resource: methodArn }],
+        principalId: "principal23"
+    };
+}
+
+exports.authFn23 = (event, context, callback) => {
+    console.log("event @ auth ====> ", event);
+    // do some testing... jwt.verify();                 // return callback('Unauthorized23')
+    return callback(null, buildPolicy('Allow', event.methodArn))
+}
