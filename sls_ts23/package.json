@@ -1,0 +1,16 @@
+{
+    "scripts": {
+        "start": "npx sls offline start",
+        "local12": "npx serverless invoke local --function hello12",
+        "local13": "npx serverless invoke local --function hello13"
+    },
+    "devDependencies": {
+        "serverless-offline": "^12.0.4",
+        "serverless-webpack": "^5.11.0",
+        "ts-loader": "^9.2.8",
+        "tsconfig-paths-webpack-plugin": "^3.3.0",
+        "typescript": "^4.4.4",
+        "webpack": "^5.84.1",
+        "webpack-node-externals": "^3.0.0"
+    }
+}

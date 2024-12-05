@@ -1,0 +1,33 @@
+service: serverless456
+custom:
+  webpack:
+    concurrency: 1
+    includeModules:
+      forceExclude:
+        - aws-sdk
+    packager: yarn
+  serverless-offline:
+    httpPort: 14004
+    websocketPort: 14005
+    lambdaPort: 14006
+
+plugins:
+  - serverless-offline
+  - serverless-webpack
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+
+functions:
+  hello12:
+    handler: handler12.hello            
+  hello13:
+    handler: handler13.hello
+    events:
+      - httpApi:
+          path: /ts/hello13
+          method: any
